@@ -1,1 +1,94 @@
-theme: jekyll-theme-cayman
+# Site Settings
+name: Java小白的笔记
+title: 记录生活,学习中的点点滴滴
+description: 一个热爱生活,喜欢编程,梦想是在编程方面成为大牛
+tags:
+  - java
+  - 后端
+  - linux
+  - 大数据
+  - 生活
+  - mq
+  - 笔记
+email: mrwhite777@163.com
+disqus_username: 出溜
+show_hero: true
+
+
+# Social Media Settings
+# Remove the item if you don't need it
+github_username: JavaGreenHands
+#facebook_username: facebook_username
+#twitter_username: twitter_username
+#instagram_username: instagram_username
+#linkedin_username: linkedin_username
+#medium_username: medium_username
+
+
+# Theme Settings
+themeColor: "#ff0a16"
+primaryDark: "#141414"
+accentDark: "#ffffff"
+lightGray: "#f2f2f2"
+texts: "#333333"
+
+
+# Posts Settings
+show_time_bar: true
+show_modal_on_exit: false
+show_modal_on_finish_post: true
+two_columns_layout: true
+
+
+# Advanced Settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://JavaGreenHands.github.io" # the base hostname & protocol for your site
+google_analytics: "UA-XXXXXXXX-X"
+language: "en"
+repository: JavaGreenHands/JavaGreenHands.github.io
+github_url: https://github.com/JavaGreenHands
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+collections:
+  authors:
+    output: true
+paginate_path: "/page/:num/"
+
+# Content paginator
+paginate_content:
+  enabled: true
+  debug: false
+  collections:
+    - posts
+  auto: false
+  separator: "--page-break--"
+  permalink: "/:num/"
+  seo_canonical: true
+  properties:
+    part:
+      is_generated: true
+    last:
+      is_generated: true
+    single:
+      is_generated: true
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-paginate-content
+
+# Exclude my node related stuff
+exclude: [
+  'package.json',
+  'package-lock.json',
+  'src',
+  'node_modules',
+  'initpost.sh',
+  'Gemfile',
+  'Gemfile.lock',
+  'gulpfile.js',
+  'README.md'
+]
