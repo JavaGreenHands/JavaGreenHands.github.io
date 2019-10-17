@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>http://localhost:4000/404/</loc>
+            <loc>http://localhost:4000/ashcan/blog/2010-01-01-welcome-to-the-desert-of-the-real/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -10,7 +10,135 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/Myself/</loc>
+            <loc>http://localhost:4000/ashcan/blog/2010-02-02-far-far-away-behind-the-word-mountains/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2010-03-03-why-books-should-be-your-priority/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2011-04-04-the-quick-brown-fox-jumps-over-a-lazy-dog/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2011-05-05-a-wonderful-serenity-has-taken-possession-of-my-entire-soul/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2011-06-06-candy-candies-candy/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2012-07-07-trust-me-it-will-work/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2012-08-08-how-to-turn-your-dog-into-a-jedi-master/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2013-10-10-let-flexbox-work-for-you-or-perish/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2013-11-11-a-star-has-fallen-from-the-sky-and-the-cat-ate-it/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2013-12-12-smoke-alert/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2014-01-01-do-you-believe-that-a-spider-can-dance/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2014-02-02-a-cook-cries-in-the-rain-at-night/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2014-03-03-grab-your-band-and-get-out/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2015-09-06-passion-is-dangerous-go-for-it/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2019-09-09-birds-can-fly-but-this-you-knew-already/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/blog/2019-09-16-%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E6%88%91%E5%88%9B%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/404/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -26,7 +154,7 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/blog/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/blog/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -34,7 +162,7 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/code/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/code/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -50,7 +178,7 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/css/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/css/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -58,7 +186,23 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/diet/</loc>
+            <loc>http://localhost:4000/category/db/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/diet/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/docker/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -78,12 +222,36 @@
             
                 <changefreq>weekly</changefreq>
                 <priority>1</priority>
-                <lastmod>2019-10-16</lastmod>
+                <lastmod>2019-10-17</lastmod>
             
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/life/</loc>
+            <loc>http://localhost:4000/category/java/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/life/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/linux/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/mq/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -99,7 +267,15 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/music/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/music/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/nosql/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -139,6 +315,22 @@
         </url>
     
         <url>
+            <loc>http://localhost:4000/category/springboot/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/springcloud/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
             <loc>http://localhost:4000/staff/</loc>
             
                 <changefreq>monthly</changefreq>
@@ -155,7 +347,7 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/tips/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/tips/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -163,7 +355,7 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/travel/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/travel/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -171,7 +363,7 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/tutorial/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/tutorial/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -179,7 +371,15 @@
         </url>
     
         <url>
-            <loc>http://localhost:4000/category/work/</loc>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/work/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
             
                 <changefreq>monthly</changefreq>
                 <priority>0.5</priority>
@@ -194,159 +394,49 @@
             
         </url>
     
-    
         <url>
-            <loc>http://localhost:4000/welcome-to-the-desert-of-the-real/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2019-05-17</lastmod>
+            <loc>http://localhost:4000/ashcan/%E5%88%86%E7%B1%BB/%E7%94%9F%E6%B4%BB/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
         </url>
     
         <url>
-            <loc>http://localhost:4000/welcome-to-the-desert-of-the-real/2/</loc>
+            <loc>http://localhost:4000/category/%E7%AC%94%E8%AE%B0/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+    
+        <url>
+            <loc>http://localhost:4000/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
-            <lastmod>2019-05-17</lastmod>
+            <lastmod>2019-10-17</lastmod>
         </url>
     
         <url>
-            <loc>http://localhost:4000/welcome-to-the-desert-of-the-real/view-all/</loc>
+            <loc>http://localhost:4000/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
-            <lastmod>2019-05-17</lastmod>
+            <lastmod>2017-10-17</lastmod>
         </url>
     
         <url>
-            <loc>http://localhost:4000/far-far-away-behind-the-word-mountains/</loc>
+            <loc>http://localhost:4000/Dockerfile%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E7%BC%96%E5%86%99/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
-            <lastmod>2019-05-13</lastmod>
+            <lastmod>2017-10-17</lastmod>
         </url>
     
         <url>
-            <loc>http://localhost:4000/far-far-away-behind-the-word-mountains/2/</loc>
+            <loc>http://localhost:4000/docker%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
-            <lastmod>2019-05-13</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/far-far-away-behind-the-word-mountains/3/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2019-05-13</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/far-far-away-behind-the-word-mountains/view-all/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2019-05-13</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/why-books-should-be-your-priority/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2018-11-22</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/the-quick-brown-fox-jumps-over-a-lazy-dog/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2018-10-09</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/a-wonderful-serenity-has-taken-possession-of-my-entire-soul/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2018-07-20</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/candy-candies-candy/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2018-04-21</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/trust-me-it-will-work/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2018-03-12</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/how-to-turn-your-dog-into-a-jedi-master/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2018-02-03</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/let-flexbox-work-for-you-or-perish/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2017-08-15</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/a-star-has-fallen-from-the-sky-and-the-cat-ate-it/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2017-08-08</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/smoke-alert/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2017-07-29</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/do-you-believe-that-a-spider-can-dance/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2017-06-08</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/a-cook-cries-in-the-rain-at-night/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2017-06-04</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/grab-your-band-and-get-out/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2017-05-11</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/passion-is-dangerous-go-for-it/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2015-09-06</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E6%88%91%E5%88%9B%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2010-09-16</lastmod>
-        </url>
-    
-        <url>
-            <loc>http://localhost:4000/birds-can-fly-but-this-you-knew-already/</loc>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-            <lastmod>2010-09-10</lastmod>
+            <lastmod>2017-10-17</lastmod>
         </url>
     
     

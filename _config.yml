@@ -1,10 +1,14 @@
 # Site Settings
-name: Java小白的笔记
+name: Java小白的个人天地
 title: 记录生活,学习中的点点滴滴
 description: 一个热爱生活,喜欢编程,梦想是在编程方面成为大牛
 tags:
   - java
-  - 后端
+  - springboot
+  - springcloud
+  - db
+  - docker
+  - nosql
   - linux
   - 大数据
   - 生活

@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <title>Docker学习笔记(二)环境安装和基本命令 | Java小白的个人天地</title>
+    <meta name="description" content="Docker的环境安装和基本命令使用">
+    
+        <meta name="keywords" content="docker, 安装docker, docker命令">
+    
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Docker学习笔记(二)环境安装和基本命令 | Java小白的个人天地">
+    <meta name="twitter:description" content="Docker的环境安装和基本命令使用">
+    <meta property="twitter:image:src" content="../blogimg/docker/01/docker01.jpg">
+    
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="http://localhost:4000/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+    <meta property="og:title" content="Docker学习笔记(二)环境安装和基本命令 | Java小白的个人天地">
+    <meta property="og:image" content="../blogimg/docker/01/docker01.jpg">
+    <meta property="og:description" content="Docker的环境安装和基本命令使用">
+    <meta property="og:site_name" content="记录生活,学习中的点点滴滴">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/icons/apple-touch-icon-152x152.png" />
+
+    <!-- Windows 8 Tile Icons -->
+    <meta name="application-name" content="Java小白的个人天地">
+    <meta name="msapplication-TileColor" content="#ff0a16">
+    <meta name="msapplication-square70x70logo" content="smalltile.png" />
+    <meta name="msapplication-square150x150logo" content="mediumtile.png" />
+    <meta name="msapplication-wide310x150logo" content="widetile.png" />
+    <meta name="msapplication-square310x310logo" content="largetile.png" />
+    
+    <!-- Android Lolipop Theme Color -->
+    <meta name="theme-color" content="#ff0a16">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="canonical" href="http://localhost:4000/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+    <link rel="alternate" type="application/rss+xml" title="记录生活,学习中的点点滴滴" href="http://localhost:4000/feed.xml" />
+</head>
+
+    <body class="has-push-menu">
+        
+
+
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none" version="1.1"><defs><symbol id="icon-menu" viewBox="0 0 1024 1024"><path class="path1" d="M128 213.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 725.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 469.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"/></symbol><symbol id="icon-search" viewBox="0 0 951 1024"><path class="path1" d="M658.286 475.429q0-105.714-75.143-180.857t-180.857-75.143-180.857 75.143-75.143 180.857 75.143 180.857 180.857 75.143 180.857-75.143 75.143-180.857zM950.857 950.857q0 29.714-21.714 51.429t-51.429 21.714q-30.857 0-51.429-21.714l-196-195.429q-102.286 70.857-228 70.857-81.714 0-156.286-31.714t-128.571-85.714-85.714-128.571-31.714-156.286 31.714-156.286 85.714-128.571 128.571-85.714 156.286-31.714 156.286 31.714 128.571 85.714 85.714 128.571 31.714 156.286q0 125.714-70.857 228l196 196q21.143 21.143 21.143 51.429z"/></symbol><symbol id="icon-close" viewBox="0 0 1000 1000"><path d="M969.8,870.3c27,27.7,27,71.8,0,99.1C955.7,983,937.9,990,920,990c-17.9,0-35.7-7-49.7-20.7L500,599L129.6,969.4C115.6,983,97.8,990,79.9,990s-35.7-7-49.7-20.7c-27-27.3-27-71.4,0-99.1L400.9,500L30.3,129.3c-27-27.3-27-71.4,0-99.1c27.3-27,71.8-27,99.4,0L500,400.9L870.4,30.2c27.7-27,71.8-27,99.4,0c27,27.7,27,71.8,0,99.1L599.1,500L969.8,870.3z"/></symbol><symbol id="icon-twitter" viewBox="0 0 951 1024"><path class="path1" d="M925.714 233.143q-38.286 56-92.571 95.429 0.571 8 0.571 24 0 74.286-21.714 148.286t-66 142-105.429 120.286-147.429 83.429-184.571 31.143q-154.857 0-283.429-82.857 20 2.286 44.571 2.286 128.571 0 229.143-78.857-60-1.143-107.429-36.857t-65.143-91.143q18.857 2.857 34.857 2.857 24.571 0 48.571-6.286-64-13.143-106-63.714t-42-117.429v-2.286q38.857 21.714 83.429 23.429-37.714-25.143-60-65.714t-22.286-88q0-50.286 25.143-93.143 69.143 85.143 168.286 136.286t212.286 56.857q-4.571-21.714-4.571-42.286 0-76.571 54-130.571t130.571-54q80 0 134.857 58.286 62.286-12 117.143-44.571-21.143 65.714-81.143 101.714 53.143-5.714 106.286-28.571z"/></symbol><symbol id="icon-facebook" viewBox="0 0 585 1024"><path class="path1" d="M548 6.857v150.857h-89.714q-49.143 0-66.286 20.571t-17.143 61.714v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571q0-106.286 59.429-164.857t158.286-58.571q84 0 130.286 6.857z"/></symbol><symbol id="icon-clock" viewBox="0 0 1000 1000"><path d="M500,10C229.8,10,10,229.8,10,500c0,270.2,219.8,490,490,490c270.2,0,490-219.8,490-490C990,229.8,770.2,10,500,10z M500,910.2c-226.2,0-410.2-184-410.2-410.2c0-226.2,184-410.2,410.2-410.2c226.2,0,410.2,184,410.2,410.2C910.2,726.1,726.2,910.2,500,910.2z M753.1,374c8.2,11.9,5.2,28.1-6.6,36.3L509.9,573.7c-4.4,3.1-9.6,4.6-14.8,4.6c-4.1,0-8.3-1-12.1-3c-8.6-4.5-14-13.4-14-23.1V202.5c0-14.4,11.7-26.1,26.1-26.1c14.4,0,26.1,11.7,26.1,26.1v300l195.6-135.1C728.7,359.2,744.9,362.1,753.1,374z"/></symbol><symbol id="icon-calendar" viewBox="0 0 1000 1000"><path d="M920,500v420H80V500H920 M990,430H10v490c0,38.7,31.3,70,70,70h840c38.7,0,70-31.3,70-70V430L990,430z"/><path d="M850,80v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80H360v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80C72.8,80,10,142.7,10,220v140h980V220C990,142.7,927.2,80,850,80z"/><path d="M255,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C290,25.8,274.3,10,255,10z"/><path d="M745,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C780,25.8,764.3,10,745,10z"/></symbol><symbol id="icon-github" viewBox="0 0 12 14"><path d="M6 1q1.633 0 3.012 0.805t2.184 2.184 0.805 3.012q0 1.961-1.145 3.527t-2.957 2.168q-0.211 0.039-0.312-0.055t-0.102-0.234q0-0.023 0.004-0.598t0.004-1.051q0-0.758-0.406-1.109 0.445-0.047 0.801-0.141t0.734-0.305 0.633-0.52 0.414-0.82 0.16-1.176q0-0.93-0.617-1.609 0.289-0.711-0.062-1.594-0.219-0.070-0.633 0.086t-0.719 0.344l-0.297 0.187q-0.727-0.203-1.5-0.203t-1.5 0.203q-0.125-0.086-0.332-0.211t-0.652-0.301-0.664-0.105q-0.352 0.883-0.062 1.594-0.617 0.68-0.617 1.609 0 0.664 0.16 1.172t0.41 0.82 0.629 0.523 0.734 0.305 0.801 0.141q-0.305 0.281-0.383 0.805-0.164 0.078-0.352 0.117t-0.445 0.039-0.512-0.168-0.434-0.488q-0.148-0.25-0.379-0.406t-0.387-0.187l-0.156-0.023q-0.164 0-0.227 0.035t-0.039 0.090 0.070 0.109 0.102 0.094l0.055 0.039q0.172 0.078 0.34 0.297t0.246 0.398l0.078 0.18q0.102 0.297 0.344 0.48t0.523 0.234 0.543 0.055 0.434-0.027l0.18-0.031q0 0.297 0.004 0.691t0.004 0.426q0 0.141-0.102 0.234t-0.312 0.055q-1.812-0.602-2.957-2.168t-1.145-3.527q0-1.633 0.805-3.012t2.184-2.184 3.012-0.805zM2.273 9.617q0.023-0.055-0.055-0.094-0.078-0.023-0.102 0.016-0.023 0.055 0.055 0.094 0.070 0.047 0.102-0.016zM2.516 9.883q0.055-0.039-0.016-0.125-0.078-0.070-0.125-0.023-0.055 0.039 0.016 0.125 0.078 0.078 0.125 0.023zM2.75 10.234q0.070-0.055 0-0.148-0.062-0.102-0.133-0.047-0.070 0.039 0 0.141t0.133 0.055zM3.078 10.562q0.062-0.062-0.031-0.148-0.094-0.094-0.156-0.023-0.070 0.062 0.031 0.148 0.094 0.094 0.156 0.023zM3.523 10.758q0.023-0.086-0.102-0.125-0.117-0.031-0.148 0.055t0.102 0.117q0.117 0.047 0.148-0.047zM4.016 10.797q0-0.102-0.133-0.086-0.125 0-0.125 0.086 0 0.102 0.133 0.086 0.125 0 0.125-0.086zM4.469 10.719q-0.016-0.086-0.141-0.070-0.125 0.023-0.109 0.117t0.141 0.062 0.109-0.109z"></path></symbol><symbol id="icon-medium" viewBox="0 0 1000 1000"><path d="M336.5,240.2v641.5c0,9.1-2.3,16.9-6.8,23.2s-11.2,9.6-20,9.6c-6.2,0-12.2-1.5-18-4.4L37.3,782.7c-7.7-3.6-14.1-9.8-19.4-18.3S10,747.4,10,739V115.5c0-7.3,1.8-13.5,5.5-18.6c3.6-5.1,8.9-7.7,15.9-7.7c5.1,0,13.1,2.7,24.1,8.2l279.5,140C335.9,238.6,336.5,239.5,336.5,240.2L336.5,240.2z M371.5,295.5l292,473.6l-292-145.5V295.5z M990,305.3v576.4c0,9.1-2.6,16.5-7.7,22.1c-5.1,5.7-12,8.5-20.8,8.5s-17.3-2.4-25.7-7.1L694.7,784.9L990,305.3z M988.4,239.7c0,1.1-46.8,77.6-140.3,229.4C754.6,621,699.8,709.8,683.8,735.7L470.5,389l177.2-288.2c6.2-10.2,15.7-15.3,28.4-15.3c5.1,0,9.8,1.1,14.2,3.3l295.9,147.7C987.6,237.1,988.4,238.2,988.4,239.7L988.4,239.7z"/></symbol><symbol id="icon-instagram" viewBox="0 0 489.84 489.84"><path d="M249.62,50.46c65.4,0,73.14.25,99,1.43C372.47,53,385.44,57,394.07,60.32a75.88,75.88,0,0,1,28.16,18.32,75.88,75.88,0,0,1,18.32,28.16c3.35,8.63,7.34,21.6,8.43,45.48,1.18,25.83,1.43,33.57,1.43,99s-0.25,73.14-1.43,99c-1.09,23.88-5.08,36.85-8.43,45.48a81.11,81.11,0,0,1-46.48,46.48c-8.63,3.35-21.6,7.34-45.48,8.43-25.82,1.18-33.57,1.43-99,1.43s-73.15-.25-99-1.43c-23.88-1.09-36.85-5.08-45.48-8.43A75.88,75.88,0,0,1,77,423.86,75.88,75.88,0,0,1,58.69,395.7c-3.35-8.63-7.34-21.6-8.43-45.48-1.18-25.83-1.43-33.57-1.43-99s0.25-73.14,1.43-99c1.09-23.88,5.08-36.85,8.43-45.48A75.88,75.88,0,0,1,77,78.64a75.88,75.88,0,0,1,28.16-18.32c8.63-3.35,21.6-7.34,45.48-8.43,25.83-1.18,33.57-1.43,99-1.43m0-44.13c-66.52,0-74.86.28-101,1.47s-43.87,5.33-59.45,11.38A120.06,120.06,0,0,0,45.81,47.44,120.06,120.06,0,0,0,17.56,90.82C11.5,106.4,7.36,124.2,6.17,150.27s-1.47,34.46-1.47,101,0.28,74.86,1.47,101,5.33,43.87,11.38,59.45a120.06,120.06,0,0,0,28.25,43.38,120.06,120.06,0,0,0,43.38,28.25c15.58,6.05,33.38,10.19,59.45,11.38s34.46,1.47,101,1.47,74.86-.28,101-1.47,43.87-5.33,59.45-11.38a125.24,125.24,0,0,0,71.63-71.63c6.05-15.58,10.19-33.38,11.38-59.45s1.47-34.46,1.47-101-0.28-74.86-1.47-101-5.33-43.87-11.38-59.45a120.06,120.06,0,0,0-28.25-43.38,120.06,120.06,0,0,0-43.38-28.25C394.47,13.13,376.67,9,350.6,7.8s-34.46-1.47-101-1.47h0Z" transform="translate(-4.7 -6.33)" /><path d="M249.62,125.48A125.77,125.77,0,1,0,375.39,251.25,125.77,125.77,0,0,0,249.62,125.48Zm0,207.41a81.64,81.64,0,1,1,81.64-81.64A81.64,81.64,0,0,1,249.62,332.89Z" transform="translate(-4.7 -6.33)"/><circle cx="375.66" cy="114.18" r="29.39" /></symbol><symbol id="icon-linkedin" viewBox="0 0 12 14"><path d="M2.727 4.883v7.742h-2.578v-7.742h2.578zM2.891 2.492q0.008 0.57-0.395 0.953t-1.059 0.383h-0.016q-0.641 0-1.031-0.383t-0.391-0.953q0-0.578 0.402-0.957t1.051-0.379 1.039 0.379 0.398 0.957zM12 8.187v4.437h-2.57v-4.141q0-0.82-0.316-1.285t-0.988-0.465q-0.492 0-0.824 0.27t-0.496 0.668q-0.086 0.234-0.086 0.633v4.32h-2.57q0.016-3.117 0.016-5.055t-0.008-2.313l-0.008-0.375h2.57v1.125h-0.016q0.156-0.25 0.32-0.438t0.441-0.406 0.68-0.34 0.895-0.121q1.336 0 2.148 0.887t0.813 2.598z"></path></symbol><symbol id="icon-heart" viewBox="0 0 34 30"><path d="M17,29.7 L16.4,29.2 C3.5,18.7 0,15 0,9 C0,4 4,0 9,0 C13.1,0 15.4,2.3 17,4.1 C18.6,2.3 20.9,0 25,0 C30,0 34,4 34,9 C34,15 30.5,18.7 17.6,29.2 L17,29.7 Z M9,2 C5.1,2 2,5.1 2,9 C2,14.1 5.2,17.5 17,27.1 C28.8,17.5 32,14.1 32,9 C32,5.1 28.9,2 25,2 C21.5,2 19.6,4.1 18.1,5.8 L17,7.1 L15.9,5.8 C14.4,4.1 12.5,2 9,2 Z" id="Shape"></path></symbol><symbol id="icon-arrow-right" viewBox="0 0 25.452 25.452"><path d="M4.471,24.929v-2.004l12.409-9.788c0.122-0.101,0.195-0.251,0.195-0.411c0-0.156-0.073-0.31-0.195-0.409L4.471,2.526V0.522c0-0.2,0.115-0.384,0.293-0.469c0.18-0.087,0.396-0.066,0.552,0.061l15.47,12.202c0.123,0.1,0.195,0.253,0.195,0.409c0,0.16-0.072,0.311-0.195,0.411L5.316,25.34c-0.155,0.125-0.372,0.147-0.552,0.061C4.586,25.315,4.471,25.13,4.471,24.929z"/></symbol></defs></svg>
+
+        <header class="bar-header">
+    <a id="menu" role="button">
+        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
+    </a>
+    <h1 class="logo">
+        <a href="/">
+            Java小白的个人天地 <span class="version">v2.0.0</span>
+        </a>
+    </h1>
+    <a id="search" class="dosearch" role="button">
+        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+    </a>
+    <a href="https://github.com/thiagorossener/jekflix-template" class="get-theme" role="button">
+        Get this theme!
+    </a>
+</header>
+
+<div id="mask" class="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+    <nav id="navigation">
+      <h2>Menu</h2>
+      <ul>
+  <li>
+    <a href="http://localhost:4000/">Home</a>
+  </li>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/about/">About</a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/staff/">Staffas</a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+    <li>
+      <a href="http://localhost:4000/contact/">Contact</a>
+    </li>
+  
+  <li>
+    <a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+  </li>
+</ul>
+
+    </nav>
+</aside>
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search">
+        <svg class="icon-remove-sign"><use xlink:href="#icon-close"></use></svg>
+        <ul class="search-results search-list"></ul>
+    </div>
+</div>
+
+
+
+        <section class="post two-columns">
+            <article role="article" class="post-content">
+                <p class="post-info">
+                    
+                        <svg class="icon-calendar" id="date"><use xlink:href="#icon-calendar"></use></svg>
+                        <time class="date" datetime="2017-10-17T17:29:33+08:00">
+                            
+
+
+October 17, 2017
+
+                        </time>
+                    
+                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <span>6 min to read</span>
+                </p>
+                <h1 class="post-title">Docker学习笔记(二)环境安装和基本命令</h1>
+                <p class="post-subtitle"></p>
+
+                
+                    <img src="../blogimg/docker/01/docker01.jpg" alt="Featured image" class="post-cover">
+                
+
+                <!-- Pagination links -->
+
+
+
+                <h3 id="docker-环境安装">docker 环境安装</h3>
+
+<ul>
+  <li>环境准备：
+    <ul>
+      <li>centos7虚拟机一台(linux内核必须在3.0 以上的才可以安装docker环境)</li>
+    </ul>
+  </li>
+  <li>安装步骤:
+<strong><em>1. 确认linux机器可以链接网络</em></strong></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping www.baidu.com
+</code></pre></div></div>
+
+<p>出现如下:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PING www.a.shifen.com <span class="o">(</span>61.135.169.125<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 61.135.169.125 <span class="o">(</span>61.135.169.125<span class="o">)</span>: icmp_seq~|<span class="o">=</span>|1 ttl~|<span class="o">=</span>|128 <span class="nb">time</span>~|<span class="o">=</span>|3.55 ms
+64 bytes from 61.135.169.125 <span class="o">(</span>61.135.169.125<span class="o">)</span>: icmp_seq~|<span class="o">=</span>|2 ttl~|<span class="o">=</span>|128 <span class="nb">time</span>~|<span class="o">=</span>|2.93 ms
+
+~|-|~|-|~|-| www.a.shifen.com ping statistics ~|-|~|-|~|-|
+2 packets transmitted, 2 received, 0% packet loss, <span class="nb">time </span>1001ms
+rtt min/avg/max/mdev ~|<span class="o">=</span>| 2.937/3.243/3.550/0.311 ms
+</code></pre></div></div>
+
+<p><strong><em>2.使用yum安装docker</em></strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install docker
+
+日志如下:
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.bit.edu.cn
+ * extras: mirror.bit.edu.cn
+ * updates: mirror.bit.edu.cn
+正在解决依赖关系
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 docker.x86_64.2.1.13.1~|-|96.gitb2f74b2.el7.centos 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 docker~|-|common ~|=| 2:1.13.1~|-|96.gitb2f74b2.el7.centos，它被软件包 2:docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 docker~|-|client ~|=| 2:1.13.1~|-|96.gitb2f74b2.el7.centos，它被软件包 2:docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 subscription~|-|manager~|-|rhsm~|-|certificates，它被软件包 2:docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 docker~|-|client.x86_64.2.1.13.1~|-|96.gitb2f74b2.el7.centos 将被 安装
+~|-|~|-|~|-|&gt; 软件包 docker~|-|common.x86_64.2.1.13.1~|-|96.gitb2f74b2.el7.centos 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 skopeo~|-|containers &gt;~|=| 1:0.1.26~|-|2，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 oci~|-|umount &gt;~|=| 2:2.3.3~|-|3，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 oci~|-|systemd~|-|hook &gt;~|=| 1:0.1.4~|-|9，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 oci~|-|register~|-|machine &gt;~|=| 1:0~|-|5.13，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 container~|-|storage~|-|setup &gt;~|=| 0.9.0~|-|1，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 container~|-|selinux &gt;~|=| 2:2.51~|-|1，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 atomic~|-|registries，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 subscription~|-|manager~|-|rhsm~|-|certificates.x86_64.0.1.21.10~|-|3.el7.centos 将被 安装
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 atomic~|-|registries.x86_64.1.1.22.1~|-|26.gitb507039.el7.centos 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|yaml，它被软件包 1:atomic~|-|registries~|-|1.22.1~|-|26.gitb507039.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|setuptools，它被软件包 1:atomic~|-|registries~|-|1.22.1~|-|26.gitb507039.el7.centos.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|pytoml，它被软件包 1:atomic~|-|registries~|-|1.22.1~|-|26.gitb507039.el7.centos.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 container~|-|selinux.noarch.2.2.99~|-|1.el7_6 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 selinux~|-|policy~|-|targeted &gt;~|=| 3.13.1~|-|216.el7，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|&gt; 正在处理依赖关系 selinux~|-|policy~|-|base &gt;~|=| 3.13.1~|-|216.el7，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|&gt; 正在处理依赖关系 selinux~|-|policy &gt;~|=| 3.13.1~|-|216.el7，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|&gt; 正在处理依赖关系 policycoreutils~|-|python，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|~|-|&gt; 软件包 container~|-|storage~|-|setup.noarch.0.0.11.0~|-|2.git5eaf76c.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 containers~|-|common.x86_64.1.0.1.35~|-|2.git404c5bd.el7.centos 将被 安装
+~|-|~|-|~|-|&gt; 软件包 oci~|-|register~|-|machine.x86_64.1.0~|-|6.git2b44233.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 oci~|-|systemd~|-|hook.x86_64.1.0.2.0~|-|1.git05e6923.el7_6 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 libyajl.so.2()(64bit)，它被软件包 1:oci~|-|systemd~|-|hook~|-|0.2.0~|-|1.git05e6923.el7_6.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 oci~|-|umount.x86_64.2.2.3.4~|-|2.git87f9237.el7 将被 安装
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 PyYAML.x86_64.0.3.10~|-|11.el7 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 libyaml~|-|0.so.2()(64bit)，它被软件包 PyYAML~|-|3.10~|-|11.el7.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 policycoreutils~|-|python.x86_64.0.2.5~|-|29.el7_6.1 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 policycoreutils ~|=| 2.5~|-|29.el7_6.1，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 setools~|-|libs &gt;~|=| 3.3.8~|-|4，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libsemanage~|-|python &gt;~|=| 2.5~|-|14，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 audit~|-|libs~|-|python &gt;~|=| 2.1.3~|-|4，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|IPy，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libqpol.so.1(VERS_1.4)(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libqpol.so.1(VERS_1.2)(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libcgroup，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libapol.so.4(VERS_4.0)(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 checkpolicy，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libqpol.so.1()(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libapol.so.4()(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 python~|-|pytoml.noarch.0.0.1.14~|-|1.git7dea353.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 python~|-|setuptools.noarch.0.0.9.8~|-|7.el7 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|backports~|-|ssl_match_hostname，它被软件包 python~|-|setuptools~|-|0.9.8~|-|7.el7.noarch 需要
+~|-|~|-|~|-|&gt; 软件包 selinux~|-|policy.noarch.0.3.13.1~|-|192.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 selinux~|-|policy.noarch.0.3.13.1~|-|229.el7_6.15 将被 更新
+~|-|~|-|&gt; 正在处理依赖关系 libsemanage &gt;~|=| 2.5~|-|13，它被软件包 selinux~|-|policy~|-|3.13.1~|-|229.el7_6.15.noarch 需要
+~|-|~|-|~|-|&gt; 软件包 selinux~|-|policy~|-|targeted.noarch.0.3.13.1~|-|192.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 selinux~|-|policy~|-|targeted.noarch.0.3.13.1~|-|229.el7_6.15 将被 更新
+~|-|~|-|~|-|&gt; 软件包 yajl.x86_64.0.2.0.4~|-|4.el7 将被 安装
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 audit~|-|libs~|-|python.x86_64.0.2.8.4~|-|4.el7 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 audit~|-|libs(x86~|-|64) ~|=| 2.8.4~|-|4.el7，它被软件包 audit~|-|libs~|-|python~|-|2.8.4~|-|4.el7.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 checkpolicy.x86_64.0.2.5~|-|8.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 libcgroup.x86_64.0.0.41~|-|20.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 libsemanage.x86_64.0.2.5~|-|11.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 libsemanage.x86_64.0.2.5~|-|14.el7 将被 更新
+~|-|~|-|&gt; 正在处理依赖关系 libsepol &gt;~|=| 2.5~|-|10，它被软件包 libsemanage~|-|2.5~|-|14.el7.x86_64 需要
+~|-|~|-|&gt; 正在处理依赖关系 libselinux &gt;~|=| 2.5~|-|14，它被软件包 libsemanage~|-|2.5~|-|14.el7.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 libsemanage~|-|python.x86_64.0.2.5~|-|14.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 libyaml.x86_64.0.0.1.4~|-|11.el7_0 将被 安装
+~|-|~|-|~|-|&gt; 软件包 policycoreutils.x86_64.0.2.5~|-|22.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 policycoreutils.x86_64.0.2.5~|-|29.el7_6.1 将被 更新
+~|-|~|-|&gt; 正在处理依赖关系 libselinux~|-|utils &gt;~|=| 2.5~|-|14，它被软件包 policycoreutils~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 python~|-|IPy.noarch.0.0.75~|-|6.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 python~|-|backports~|-|ssl_match_hostname.noarch.0.3.5.0.1~|-|1.el7 将被 安装
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|ipaddress，它被软件包 python~|-|backports~|-|ssl_match_hostname~|-|3.5.0.1~|-|1.el7.noarch 需要
+~|-|~|-|&gt; 正在处理依赖关系 python~|-|backports，它被软件包 python~|-|backports~|-|ssl_match_hostname~|-|3.5.0.1~|-|1.el7.noarch 需要
+~|-|~|-|~|-|&gt; 软件包 setools~|-|libs.x86_64.0.3.3.8~|-|4.el7 将被 安装
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 audit~|-|libs.x86_64.0.2.8.1~|-|3.el7 将被 升级
+~|-|~|-|&gt; 正在处理依赖关系 audit~|-|libs(x86~|-|64) ~|=| 2.8.1~|-|3.el7，它被软件包 audit~|-|2.8.1~|-|3.el7.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 audit~|-|libs.x86_64.0.2.8.4~|-|4.el7 将被 更新
+~|-|~|-|~|-|&gt; 软件包 libselinux.x86_64.0.2.5~|-|12.el7 将被 升级
+~|-|~|-|&gt; 正在处理依赖关系 libselinux(x86~|-|64) ~|=| 2.5~|-|12.el7，它被软件包 libselinux~|-|python~|-|2.5~|-|12.el7.x86_64 需要
+~|-|~|-|~|-|&gt; 软件包 libselinux.x86_64.0.2.5~|-|14.1.el7 将被 更新
+~|-|~|-|~|-|&gt; 软件包 libselinux~|-|utils.x86_64.0.2.5~|-|12.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 libselinux~|-|utils.x86_64.0.2.5~|-|14.1.el7 将被 更新
+~|-|~|-|~|-|&gt; 软件包 libsepol.x86_64.0.2.5~|-|8.1.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 libsepol.x86_64.0.2.5~|-|10.el7 将被 更新
+~|-|~|-|~|-|&gt; 软件包 python~|-|backports.x86_64.0.1.0~|-|8.el7 将被 安装
+~|-|~|-|~|-|&gt; 软件包 python~|-|ipaddress.noarch.0.1.0.16~|-|2.el7 将被 安装
+~|-|~|-|&gt; 正在检查事务
+~|-|~|-|~|-|&gt; 软件包 audit.x86_64.0.2.8.1~|-|3.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 audit.x86_64.0.2.8.4~|-|4.el7 将被 更新
+~|-|~|-|~|-|&gt; 软件包 libselinux~|-|python.x86_64.0.2.5~|-|12.el7 将被 升级
+~|-|~|-|~|-|&gt; 软件包 libselinux~|-|python.x86_64.0.2.5~|-|14.1.el7 将被 更新
+~|-|~|-|&gt; 解决依赖关系完成
+
+依赖关系解决
+
+~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|
+ Package                                                  架构                     版本                                                 源                         大小
+~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|
+正在安装:
+ docker                                                   x86_64                   2:1.13.1~|-|96.gitb2f74b2.el7.centos                    extras                     18 M
+为依赖而安装:
+ PyYAML                                                   x86_64                   3.10~|-|11.el7                                          base                      153 k
+ atomic~|-|registries                                        x86_64                   1:1.22.1~|-|26.gitb507039.el7.centos                    extras                     35 k
+ audit~|-|libs~|-|python                                        x86_64                   2.8.4~|-|4.el7                                          base                       76 k
+ checkpolicy                                              x86_64                   2.5~|-|8.el7                                            base                      295 k
+ container~|-|selinux                                        noarch                   2:2.99~|-|1.el7_6                                       extras                     39 k
+ container~|-|storage~|-|setup                                  noarch                   0.11.0~|-|2.git5eaf76c.el7                              extras                     35 k
+ containers~|-|common                                        x86_64                   1:0.1.35~|-|2.git404c5bd.el7.centos                     extras                     21 k
+ docker~|-|client                                            x86_64                   2:1.13.1~|-|96.gitb2f74b2.el7.centos                    extras                    3.9 M
+ docker~|-|common                                            x86_64                   2:1.13.1~|-|96.gitb2f74b2.el7.centos                    extras                     96 k
+ libcgroup                                                x86_64                   0.41~|-|20.el7                                          base                       66 k
+ libsemanage~|-|python                                       x86_64                   2.5~|-|14.el7                                           base                      113 k
+ libyaml                                                  x86_64                   0.1.4~|-|11.el7_0                                       base                       55 k
+ oci~|-|register~|-|machine                                     x86_64                   1:0~|-|6.git2b44233.el7                                 extras                    1.1 M
+ oci~|-|systemd~|-|hook                                         x86_64                   1:0.2.0~|-|1.git05e6923.el7_6                           extras                     34 k
+ oci~|-|umount                                               x86_64                   2:2.3.4~|-|2.git87f9237.el7                             extras                     32 k
+ policycoreutils~|-|python                                   x86_64                   2.5~|-|29.el7_6.1                                       updates                   456 k
+ python~|-|IPy                                               noarch                   0.75~|-|6.el7                                           base                       32 k
+ python~|-|backports                                         x86_64                   1.0~|-|8.el7                                            base                      5.8 k
+ python~|-|backports~|-|ssl_match_hostname                      noarch                   3.5.0.1~|-|1.el7                                        base                       13 k
+ python~|-|ipaddress                                         noarch                   1.0.16~|-|2.el7                                         base                       34 k
+ python~|-|pytoml                                            noarch                   0.1.14~|-|1.git7dea353.el7                              extras                     18 k
+ python~|-|setuptools                                        noarch                   0.9.8~|-|7.el7                                          base                      397 k
+ setools~|-|libs                                             x86_64                   3.3.8~|-|4.el7                                          base                      620 k
+ subscription~|-|manager~|-|rhsm~|-|certificates                   x86_64                   1.21.10~|-|3.el7.centos                                 updates                   207 k
+ yajl                                                     x86_64                   2.0.4~|-|4.el7                                          base                       39 k
+为依赖而更新:
+ audit                                                    x86_64                   2.8.4~|-|4.el7                                          base                      250 k
+ audit~|-|libs                                               x86_64                   2.8.4~|-|4.el7                                          base                      100 k
+ libselinux                                               x86_64                   2.5~|-|14.1.el7                                         base                      162 k
+ libselinux~|-|python                                        x86_64                   2.5~|-|14.1.el7                                         base                      235 k
+ libselinux~|-|utils                                         x86_64                   2.5~|-|14.1.el7                                         base                      151 k
+ libsemanage                                              x86_64                   2.5~|-|14.el7                                           base                      151 k
+ libsepol                                                 x86_64                   2.5~|-|10.el7                                           base                      297 k
+ policycoreutils                                          x86_64                   2.5~|-|29.el7_6.1                                       updates                   916 k
+ selinux~|-|policy                                           noarch                   3.13.1~|-|229.el7_6.15                                  updates                   484 k
+ selinux~|-|policy~|-|targeted                                  noarch                   3.13.1~|-|229.el7_6.15                                  updates                   6.9 M
+
+事务概要
+~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|
+安装  1 软件包 (+25 依赖软件包)
+升级           ( 10 依赖软件包)
+
+总下载量：35 M
+Is this ok [y/d/N]: 
+</code></pre></div></div>
+
+<p>输入 Y</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>作为依赖被升级:
+  audit.x86_64 0:2.8.4~|-|4.el7                                     audit~|-|libs.x86_64 0:2.8.4~|-|4.el7                   libselinux.x86_64 0:2.5~|-|14.1.el7                     
+  libselinux~|-|python.x86_64 0:2.5~|-|14.1.el7                        libselinux~|-|utils.x86_64 0:2.5~|-|14.1.el7            libsemanage.x86_64 0:2.5~|-|14.el7                      
+  libsepol.x86_64 0:2.5~|-|10.el7                                   policycoreutils.x86_64 0:2.5~|-|29.el7_6.1           selinux~|-|policy.noarch 0:3.13.1~|-|229.el7_6.15          
+  selinux~|-|policy~|-|targeted.noarch 0:3.13.1~|-|229.el7_6.15          
+
+完毕！
+</code></pre></div></div>
+
+<p>docker 环境安装完毕！</p>
+
+<p><strong><em>3.配置docker</em></strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~|#| 启动docker服务
+service docker start
+~|#| 将docker设置为开机启动服务
+chkconfig docker on
+</code></pre></div></div>
+
+<p>使用systemd语法</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl  start docker.service
+systemctl  <span class="nb">enable </span>docker.service
+</code></pre></div></div>
+
+<p>测试docker服务是否启动</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker version
+
+控制台日志输出：
+ Version:         1.13.1
+ API version:     1.26
+ Package version: docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64
+ Go version:      go1.10.3
+ Git commit:      b2f74b2/1.13.1
+ Built:           Wed May  1 14:55:20 2019
+ OS/Arch:         linux/amd64
+
+Server:
+ Version:         1.13.1
+ API version:     1.26 <span class="o">(</span>minimum version 1.12<span class="o">)</span>
+ Package version: docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64
+ Go version:      go1.10.3
+ Git commit:      b2f74b2/1.13.1
+ Built:           Wed May  1 14:55:20 2019
+ OS/Arch:         linux/amd64
+ Experimental:    <span class="nb">false</span>
+</code></pre></div></div>
+
+<p>Docker环境至此安装成功！</p>
+
+<h3 id="helloworld-docker">HelloWorld Docker</h3>
+
+<hr />
+
+<p>docker 的镜像都是从仓库中拉取下来的，默认的docker官方仓库我们拉取很慢，所以可以使用docker的中文加速器，通过Docker官方镜像加速，中国用户可以快速访问最流行的Docker镜像。
+修改系统中docker的配置文件</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/docker/daemon.json
+{
+        "registry~|-|mirrors": ["https://registry.docker~|-|cn.com"],
+        "live~|-|restore": true
+}
+</code></pre></div></div>
+
+<p>从docker中拉取镜像到本地</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull library/hello~|-|world
+~|#| 默认拉取镜像时没有指定tag时使用的是默认的tag latest
+Using default tag: latest
+Trying to pull repository docker.io/library/hello~|-|world ... 
+latest: Pulling from docker.io/library/hello~|-|world
+1b930d010525: Pull <span class="nb">complete 
+</span>Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+Status: Downloaded newer image <span class="k">for </span>docker.io/hello~|-|world:latest
+</code></pre></div></div>
+
+<p>查看本地 image文件</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images
+~|#| 显示
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+docker.io/hello~|-|world   latest              fce289e99eb9        7 months ago        1.84 kB
+</code></pre></div></div>
+
+<p>运行容器</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run hello~|-|world
+~|#| 显示结果
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+....
+</code></pre></div></div>
+
+<p>查看正在运行的容器</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps
+~|#| 显示，当前并没有容器在运行，说明hello~|-|world已经停止运行了，但对于一些提供服务的应用，例如mysql，redis这种的就不会停止服务
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+</code></pre></div></div>
+
+<p id="docker-常用命令">###Docker 常用命令</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~|#| 从仓库搜索镜像
+docker search centos
+
+~|#| 拉取镜像
+docker  pull  docker.io/centos
+
+~|#| 指定仓库注册地址拉取镜像
+docker pull     xxx.com:5000/myimages
+
+~|#| 创建一个centos系统容器,并运行其中的应用
+docker run ~|-|it centos /bin/bash
+ 在容器中  安装一个 上传下载的插件
+<span class="o">[</span>root@52f32edf87a0 /]~|#| yum ~|-|y <span class="nb">install </span>lrzsz
+Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+...
+
+~|#| 修改镜像  记住刚刚容器运行时的imageId 其中, ~|-|m 来指定提交的说明信息,跟我们使用的版本控制工具一样<span class="p">;</span> ~|-|a 可以指定更新的用户信息<span class="p">;</span>之后是用来创建镜像的容器的 ID<span class="p">;</span>最后指定目标镜像的仓库名和 tag 信息。创建成功后会返回这个镜像的 ID
+docker commit ~|-|m <span class="s1">'add lrzsz to centos7'</span> ~|-|a <span class="s1">'me '</span> e8ea76c6015c  myrepo/mycentos7:lrzsz
+
+~|#| 查看正在运行的docker容器
+docker ps
+
+~|#| 查看所有的容器
+docker ps  ~|-|a
+
+~|#| 查看宿主机镜像  保存在/var/lib/docker中
+docker images
+
+~|#| 删除镜像
+docker rmi <span class="o">[</span>仓库名]/[镜像名] 或者  docker rmi 镜像Id
+
+~|#| 启动容器
+docker start <span class="o">[</span>容器名称]/[容器Id]
+
+~|#| 停止容器
+ docker stop <span class="o">[</span>容器名称]/[容器Id]
+
+~|#|  重启容器 
+docker restart <span class="o">[</span>容器名称]/[容器Id]
+
+~|#| 删除容器
+docker <span class="nb">rm</span>   <span class="o">[</span>容器名称]/[容器Id]
+
+~|#| 删除所有停止的容器
+docker <span class="nb">rm</span> <span class="si">$(</span>docker ps ~|-|a ~|-|q<span class="si">)</span>
+
+~|#| 查看当前系统docker信息
+docker info
+</code></pre></div></div>
+
+
+
+                <!-- Pagination links -->
+
+
+            </article>
+
+            
+                <aside class="see-also">
+                    <h2>See also</h2>
+                    <ul>
+                        
+                        
+                        
+                            <li>
+                                <a href="/docker%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+                                    
+                                        <img src="../blogimg/docker/01/docker01.jpg">
+                                    
+                                    <h3>Docker(一)基本概念</h3>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/">
+                                    
+                                        <img src="https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559821648/theme5_wmutla.jpg">
+                                    
+                                    <h3>我的个人笔记</h3>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/Dockerfile%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E7%BC%96%E5%86%99/">
+                                    
+                                        <img src="../blogimg/docker/01/docker01.jpg">
+                                    
+                                    <h3>Docker学习笔记(三)Dockerfile的概念及其编写</h3>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </aside>
+            
+
+        </section>
+
+        <!-- Add time bar only for pages without pagination -->
+        
+            <div class="time-bar" data-minutes="6">
+    <span class="time-completed"></span>
+    <span class="time-remaining"></span>
+    <div class="bar">
+        <span class="completed" style="width:0%;"></span>
+        <span class="remaining" style="width:100%;"></span>
+    </div>
+</div>
+
+            <div class="recommendation">
+    <div class="message">
+        <strong>Why don't you read something next?</strong>
+        <a href="javascript:void(0);">Go back to top</a>
+    </div>
+    
+    <a href="/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="post-preview">
+        <div class="image">
+            
+                <img src="https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559821648/theme5_wmutla.jpg">
+            
+        </div>
+        <h3 class="title">我的个人笔记</h3>
+    </a>
+</div>
+
+        
+
+        <!-- Show modal if the post is the last one -->
+        
+
+        <!-- Show modal before user leaves the page -->
+        
+
+        <section class="share">
+    <h3>Share</h3>
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;Docker的环境安装和基本命令使用&quot;%20http://localhost:4000/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%20via%20&#64;&hashtags=docker,安装docker,docker命令,"
+    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+    </a>
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"
+    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+        <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
+    </a>
+</section>
+
+        
+
+
+        
+
+<section class="comments">
+    <h3>Comments</h3>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+    var disqus_loaded = false;
+
+    function load_disqus()
+    {
+        disqus_loaded = true;
+        var disqus_shortname = '出溜';
+        var disqus_title = '';
+        var disqus_url = '/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/';
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var ldr = document.getElementById('disqus_loader');
+    };
+    window.onscroll = function(e) {
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 800)) {
+            //hit bottom of page
+            if (disqus_loaded==false)
+                load_disqus()
+        }
+    };
+</script>
+
+
+
+        <footer>
+    <p>
+      
+        <a href="https://github.com/JavaGreenHands" title="Github">
+          <svg><use xlink:href="#icon-github"></use></svg>
+        </a>
+      
+      
+      
+      
+      
+      
+    </p>
+
+    <ul>
+  <li>
+    <a href="http://localhost:4000/">Home</a>
+  </li>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/about/">About</a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/staff/">Staffas</a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+    <li>
+      <a href="http://localhost:4000/contact/">Contact</a>
+    </li>
+  
+  <li>
+    <a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+  </li>
+</ul>
+
+
+    <p>
+      <span>Jekflix</span> was made with <svg class="love"><use xlink:href="#icon-heart"></use></svg> by <a href="https://rossener.com" target="_blank" class="creator">Thiago Rossener</a>
+    </p>
+</footer>
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Java小白的个人天地",
+  "description": "一个热爱生活,喜欢编程,梦想是在编程方面成为大牛",
+  "url": "http://localhost:4000/",
+  "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/assets/img/icons/mediumtile.png",
+      "width": "600",
+      "height": "315"
+  },
+  "sameAs": [
+    "https://github.com/JavaGreenHands"
+  ]
+}
+</script>
+
+<!-- Include the script that allows Netlify CMS login -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<!-- Include the website scripts -->
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Include Google Analytics script -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-XXXXXXXX-X', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            "name": "Docker学习笔记(二)环境安装和基本命令",
+            "headline": "",
+            "description": "Docker的环境安装和基本命令使用",
+            "image": "../blogimg/docker/01/docker01.jpg",
+            "url": "http://localhost:4000/docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/",
+            "articleBody": "docker 环境安装
+
+
+  环境准备：
+    
+      centos7虚拟机一台(linux内核必须在3.0 以上的才可以安装docker环境)
+    
+  
+  安装步骤:
+1. 确认linux机器可以链接网络
+
+
+ping www.baidu.com
+
+
+出现如下:
+
+PING www.a.shifen.com (61.135.169.125) 56(84) bytes of data.
+64 bytes from 61.135.169.125 (61.135.169.125): icmp_seq~|=|1 ttl~|=|128 time~|=|3.55 ms
+64 bytes from 61.135.169.125 (61.135.169.125): icmp_seq~|=|2 ttl~|=|128 time~|=|2.93 ms
+
+~|-|~|-|~|-| www.a.shifen.com ping statistics ~|-|~|-|~|-|
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev ~|=| 2.937/3.243/3.550/0.311 ms
+
+
+2.使用yum安装docker
+
+yum install docker
+
+日志如下:
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.bit.edu.cn
+ * extras: mirror.bit.edu.cn
+ * updates: mirror.bit.edu.cn
+正在解决依赖关系
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 docker.x86_64.2.1.13.1~|-|96.gitb2f74b2.el7.centos 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 docker~|-|common ~|=| 2:1.13.1~|-|96.gitb2f74b2.el7.centos，它被软件包 2:docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 docker~|-|client ~|=| 2:1.13.1~|-|96.gitb2f74b2.el7.centos，它被软件包 2:docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 subscription~|-|manager~|-|rhsm~|-|certificates，它被软件包 2:docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 docker~|-|client.x86_64.2.1.13.1~|-|96.gitb2f74b2.el7.centos 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 docker~|-|common.x86_64.2.1.13.1~|-|96.gitb2f74b2.el7.centos 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 skopeo~|-|containers &amp;gt;~|=| 1:0.1.26~|-|2，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 oci~|-|umount &amp;gt;~|=| 2:2.3.3~|-|3，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 oci~|-|systemd~|-|hook &amp;gt;~|=| 1:0.1.4~|-|9，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 oci~|-|register~|-|machine &amp;gt;~|=| 1:0~|-|5.13，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 container~|-|storage~|-|setup &amp;gt;~|=| 0.9.0~|-|1，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 container~|-|selinux &amp;gt;~|=| 2:2.51~|-|1，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 atomic~|-|registries，它被软件包 2:docker~|-|common~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 subscription~|-|manager~|-|rhsm~|-|certificates.x86_64.0.1.21.10~|-|3.el7.centos 将被 安装
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 atomic~|-|registries.x86_64.1.1.22.1~|-|26.gitb507039.el7.centos 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|yaml，它被软件包 1:atomic~|-|registries~|-|1.22.1~|-|26.gitb507039.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|setuptools，它被软件包 1:atomic~|-|registries~|-|1.22.1~|-|26.gitb507039.el7.centos.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|pytoml，它被软件包 1:atomic~|-|registries~|-|1.22.1~|-|26.gitb507039.el7.centos.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 container~|-|selinux.noarch.2.2.99~|-|1.el7_6 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 selinux~|-|policy~|-|targeted &amp;gt;~|=| 3.13.1~|-|216.el7，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 selinux~|-|policy~|-|base &amp;gt;~|=| 3.13.1~|-|216.el7，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 selinux~|-|policy &amp;gt;~|=| 3.13.1~|-|216.el7，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 policycoreutils~|-|python，它被软件包 2:container~|-|selinux~|-|2.99~|-|1.el7_6.noarch 需要
+~|-|~|-|~|-|&amp;gt; 软件包 container~|-|storage~|-|setup.noarch.0.0.11.0~|-|2.git5eaf76c.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 containers~|-|common.x86_64.1.0.1.35~|-|2.git404c5bd.el7.centos 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 oci~|-|register~|-|machine.x86_64.1.0~|-|6.git2b44233.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 oci~|-|systemd~|-|hook.x86_64.1.0.2.0~|-|1.git05e6923.el7_6 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 libyajl.so.2()(64bit)，它被软件包 1:oci~|-|systemd~|-|hook~|-|0.2.0~|-|1.git05e6923.el7_6.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 oci~|-|umount.x86_64.2.2.3.4~|-|2.git87f9237.el7 将被 安装
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 PyYAML.x86_64.0.3.10~|-|11.el7 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 libyaml~|-|0.so.2()(64bit)，它被软件包 PyYAML~|-|3.10~|-|11.el7.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 policycoreutils~|-|python.x86_64.0.2.5~|-|29.el7_6.1 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 policycoreutils ~|=| 2.5~|-|29.el7_6.1，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 setools~|-|libs &amp;gt;~|=| 3.3.8~|-|4，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libsemanage~|-|python &amp;gt;~|=| 2.5~|-|14，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 audit~|-|libs~|-|python &amp;gt;~|=| 2.1.3~|-|4，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|IPy，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libqpol.so.1(VERS_1.4)(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libqpol.so.1(VERS_1.2)(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libcgroup，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libapol.so.4(VERS_4.0)(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 checkpolicy，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libqpol.so.1()(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libapol.so.4()(64bit)，它被软件包 policycoreutils~|-|python~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 python~|-|pytoml.noarch.0.0.1.14~|-|1.git7dea353.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 python~|-|setuptools.noarch.0.0.9.8~|-|7.el7 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|backports~|-|ssl_match_hostname，它被软件包 python~|-|setuptools~|-|0.9.8~|-|7.el7.noarch 需要
+~|-|~|-|~|-|&amp;gt; 软件包 selinux~|-|policy.noarch.0.3.13.1~|-|192.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 selinux~|-|policy.noarch.0.3.13.1~|-|229.el7_6.15 将被 更新
+~|-|~|-|&amp;gt; 正在处理依赖关系 libsemanage &amp;gt;~|=| 2.5~|-|13，它被软件包 selinux~|-|policy~|-|3.13.1~|-|229.el7_6.15.noarch 需要
+~|-|~|-|~|-|&amp;gt; 软件包 selinux~|-|policy~|-|targeted.noarch.0.3.13.1~|-|192.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 selinux~|-|policy~|-|targeted.noarch.0.3.13.1~|-|229.el7_6.15 将被 更新
+~|-|~|-|~|-|&amp;gt; 软件包 yajl.x86_64.0.2.0.4~|-|4.el7 将被 安装
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 audit~|-|libs~|-|python.x86_64.0.2.8.4~|-|4.el7 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 audit~|-|libs(x86~|-|64) ~|=| 2.8.4~|-|4.el7，它被软件包 audit~|-|libs~|-|python~|-|2.8.4~|-|4.el7.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 checkpolicy.x86_64.0.2.5~|-|8.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 libcgroup.x86_64.0.0.41~|-|20.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 libsemanage.x86_64.0.2.5~|-|11.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 libsemanage.x86_64.0.2.5~|-|14.el7 将被 更新
+~|-|~|-|&amp;gt; 正在处理依赖关系 libsepol &amp;gt;~|=| 2.5~|-|10，它被软件包 libsemanage~|-|2.5~|-|14.el7.x86_64 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 libselinux &amp;gt;~|=| 2.5~|-|14，它被软件包 libsemanage~|-|2.5~|-|14.el7.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 libsemanage~|-|python.x86_64.0.2.5~|-|14.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 libyaml.x86_64.0.0.1.4~|-|11.el7_0 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 policycoreutils.x86_64.0.2.5~|-|22.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 policycoreutils.x86_64.0.2.5~|-|29.el7_6.1 将被 更新
+~|-|~|-|&amp;gt; 正在处理依赖关系 libselinux~|-|utils &amp;gt;~|=| 2.5~|-|14，它被软件包 policycoreutils~|-|2.5~|-|29.el7_6.1.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 python~|-|IPy.noarch.0.0.75~|-|6.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 python~|-|backports~|-|ssl_match_hostname.noarch.0.3.5.0.1~|-|1.el7 将被 安装
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|ipaddress，它被软件包 python~|-|backports~|-|ssl_match_hostname~|-|3.5.0.1~|-|1.el7.noarch 需要
+~|-|~|-|&amp;gt; 正在处理依赖关系 python~|-|backports，它被软件包 python~|-|backports~|-|ssl_match_hostname~|-|3.5.0.1~|-|1.el7.noarch 需要
+~|-|~|-|~|-|&amp;gt; 软件包 setools~|-|libs.x86_64.0.3.3.8~|-|4.el7 将被 安装
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 audit~|-|libs.x86_64.0.2.8.1~|-|3.el7 将被 升级
+~|-|~|-|&amp;gt; 正在处理依赖关系 audit~|-|libs(x86~|-|64) ~|=| 2.8.1~|-|3.el7，它被软件包 audit~|-|2.8.1~|-|3.el7.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 audit~|-|libs.x86_64.0.2.8.4~|-|4.el7 将被 更新
+~|-|~|-|~|-|&amp;gt; 软件包 libselinux.x86_64.0.2.5~|-|12.el7 将被 升级
+~|-|~|-|&amp;gt; 正在处理依赖关系 libselinux(x86~|-|64) ~|=| 2.5~|-|12.el7，它被软件包 libselinux~|-|python~|-|2.5~|-|12.el7.x86_64 需要
+~|-|~|-|~|-|&amp;gt; 软件包 libselinux.x86_64.0.2.5~|-|14.1.el7 将被 更新
+~|-|~|-|~|-|&amp;gt; 软件包 libselinux~|-|utils.x86_64.0.2.5~|-|12.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 libselinux~|-|utils.x86_64.0.2.5~|-|14.1.el7 将被 更新
+~|-|~|-|~|-|&amp;gt; 软件包 libsepol.x86_64.0.2.5~|-|8.1.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 libsepol.x86_64.0.2.5~|-|10.el7 将被 更新
+~|-|~|-|~|-|&amp;gt; 软件包 python~|-|backports.x86_64.0.1.0~|-|8.el7 将被 安装
+~|-|~|-|~|-|&amp;gt; 软件包 python~|-|ipaddress.noarch.0.1.0.16~|-|2.el7 将被 安装
+~|-|~|-|&amp;gt; 正在检查事务
+~|-|~|-|~|-|&amp;gt; 软件包 audit.x86_64.0.2.8.1~|-|3.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 audit.x86_64.0.2.8.4~|-|4.el7 将被 更新
+~|-|~|-|~|-|&amp;gt; 软件包 libselinux~|-|python.x86_64.0.2.5~|-|12.el7 将被 升级
+~|-|~|-|~|-|&amp;gt; 软件包 libselinux~|-|python.x86_64.0.2.5~|-|14.1.el7 将被 更新
+~|-|~|-|&amp;gt; 解决依赖关系完成
+
+依赖关系解决
+
+~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|
+ Package                                                  架构                     版本                                                 源                         大小
+~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|
+正在安装:
+ docker                                                   x86_64                   2:1.13.1~|-|96.gitb2f74b2.el7.centos                    extras                     18 M
+为依赖而安装:
+ PyYAML                                                   x86_64                   3.10~|-|11.el7                                          base                      153 k
+ atomic~|-|registries                                        x86_64                   1:1.22.1~|-|26.gitb507039.el7.centos                    extras                     35 k
+ audit~|-|libs~|-|python                                        x86_64                   2.8.4~|-|4.el7                                          base                       76 k
+ checkpolicy                                              x86_64                   2.5~|-|8.el7                                            base                      295 k
+ container~|-|selinux                                        noarch                   2:2.99~|-|1.el7_6                                       extras                     39 k
+ container~|-|storage~|-|setup                                  noarch                   0.11.0~|-|2.git5eaf76c.el7                              extras                     35 k
+ containers~|-|common                                        x86_64                   1:0.1.35~|-|2.git404c5bd.el7.centos                     extras                     21 k
+ docker~|-|client                                            x86_64                   2:1.13.1~|-|96.gitb2f74b2.el7.centos                    extras                    3.9 M
+ docker~|-|common                                            x86_64                   2:1.13.1~|-|96.gitb2f74b2.el7.centos                    extras                     96 k
+ libcgroup                                                x86_64                   0.41~|-|20.el7                                          base                       66 k
+ libsemanage~|-|python                                       x86_64                   2.5~|-|14.el7                                           base                      113 k
+ libyaml                                                  x86_64                   0.1.4~|-|11.el7_0                                       base                       55 k
+ oci~|-|register~|-|machine                                     x86_64                   1:0~|-|6.git2b44233.el7                                 extras                    1.1 M
+ oci~|-|systemd~|-|hook                                         x86_64                   1:0.2.0~|-|1.git05e6923.el7_6                           extras                     34 k
+ oci~|-|umount                                               x86_64                   2:2.3.4~|-|2.git87f9237.el7                             extras                     32 k
+ policycoreutils~|-|python                                   x86_64                   2.5~|-|29.el7_6.1                                       updates                   456 k
+ python~|-|IPy                                               noarch                   0.75~|-|6.el7                                           base                       32 k
+ python~|-|backports                                         x86_64                   1.0~|-|8.el7                                            base                      5.8 k
+ python~|-|backports~|-|ssl_match_hostname                      noarch                   3.5.0.1~|-|1.el7                                        base                       13 k
+ python~|-|ipaddress                                         noarch                   1.0.16~|-|2.el7                                         base                       34 k
+ python~|-|pytoml                                            noarch                   0.1.14~|-|1.git7dea353.el7                              extras                     18 k
+ python~|-|setuptools                                        noarch                   0.9.8~|-|7.el7                                          base                      397 k
+ setools~|-|libs                                             x86_64                   3.3.8~|-|4.el7                                          base                      620 k
+ subscription~|-|manager~|-|rhsm~|-|certificates                   x86_64                   1.21.10~|-|3.el7.centos                                 updates                   207 k
+ yajl                                                     x86_64                   2.0.4~|-|4.el7                                          base                       39 k
+为依赖而更新:
+ audit                                                    x86_64                   2.8.4~|-|4.el7                                          base                      250 k
+ audit~|-|libs                                               x86_64                   2.8.4~|-|4.el7                                          base                      100 k
+ libselinux                                               x86_64                   2.5~|-|14.1.el7                                         base                      162 k
+ libselinux~|-|python                                        x86_64                   2.5~|-|14.1.el7                                         base                      235 k
+ libselinux~|-|utils                                         x86_64                   2.5~|-|14.1.el7                                         base                      151 k
+ libsemanage                                              x86_64                   2.5~|-|14.el7                                           base                      151 k
+ libsepol                                                 x86_64                   2.5~|-|10.el7                                           base                      297 k
+ policycoreutils                                          x86_64                   2.5~|-|29.el7_6.1                                       updates                   916 k
+ selinux~|-|policy                                           noarch                   3.13.1~|-|229.el7_6.15                                  updates                   484 k
+ selinux~|-|policy~|-|targeted                                  noarch                   3.13.1~|-|229.el7_6.15                                  updates                   6.9 M
+
+事务概要
+~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|~|=|
+安装  1 软件包 (+25 依赖软件包)
+升级           ( 10 依赖软件包)
+
+总下载量：35 M
+Is this ok [y/d/N]: 
+
+
+输入 Y
+
+作为依赖被升级:
+  audit.x86_64 0:2.8.4~|-|4.el7                                     audit~|-|libs.x86_64 0:2.8.4~|-|4.el7                   libselinux.x86_64 0:2.5~|-|14.1.el7                     
+  libselinux~|-|python.x86_64 0:2.5~|-|14.1.el7                        libselinux~|-|utils.x86_64 0:2.5~|-|14.1.el7            libsemanage.x86_64 0:2.5~|-|14.el7                      
+  libsepol.x86_64 0:2.5~|-|10.el7                                   policycoreutils.x86_64 0:2.5~|-|29.el7_6.1           selinux~|-|policy.noarch 0:3.13.1~|-|229.el7_6.15          
+  selinux~|-|policy~|-|targeted.noarch 0:3.13.1~|-|229.el7_6.15          
+
+完毕！
+
+
+docker 环境安装完毕！
+
+3.配置docker
+
+~|#| 启动docker服务
+service docker start
+~|#| 将docker设置为开机启动服务
+chkconfig docker on
+
+
+使用systemd语法
+
+systemctl  start docker.service
+systemctl  enable docker.service
+
+
+测试docker服务是否启动
+
+docker version
+
+控制台日志输出：
+ Version:         1.13.1
+ API version:     1.26
+ Package version: docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64
+ Go version:      go1.10.3
+ Git commit:      b2f74b2/1.13.1
+ Built:           Wed May  1 14:55:20 2019
+ OS/Arch:         linux/amd64
+
+Server:
+ Version:         1.13.1
+ API version:     1.26 (minimum version 1.12)
+ Package version: docker~|-|1.13.1~|-|96.gitb2f74b2.el7.centos.x86_64
+ Go version:      go1.10.3
+ Git commit:      b2f74b2/1.13.1
+ Built:           Wed May  1 14:55:20 2019
+ OS/Arch:         linux/amd64
+ Experimental:    false
+
+
+Docker环境至此安装成功！
+
+HelloWorld Docker
+
+
+
+docker 的镜像都是从仓库中拉取下来的，默认的docker官方仓库我们拉取很慢，所以可以使用docker的中文加速器，通过Docker官方镜像加速，中国用户可以快速访问最流行的Docker镜像。
+修改系统中docker的配置文件
+
+vim /etc/docker/daemon.json
+{
+        &quot;registry~|-|mirrors&quot;: [&quot;https://registry.docker~|-|cn.com&quot;],
+        &quot;live~|-|restore&quot;: true
+}
+
+
+从docker中拉取镜像到本地
+
+docker pull library/hello~|-|world
+~|#| 默认拉取镜像时没有指定tag时使用的是默认的tag latest
+Using default tag: latest
+Trying to pull repository docker.io/library/hello~|-|world ... 
+latest: Pulling from docker.io/library/hello~|-|world
+1b930d010525: Pull complete 
+Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+Status: Downloaded newer image for docker.io/hello~|-|world:latest
+
+
+查看本地 image文件
+
+docker images
+~|#| 显示
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+docker.io/hello~|-|world   latest              fce289e99eb9        7 months ago        1.84 kB
+
+
+运行容器
+
+docker run hello~|-|world
+~|#| 显示结果
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+....
+
+
+查看正在运行的容器
+
+docker ps
+~|#| 显示，当前并没有容器在运行，说明hello~|-|world已经停止运行了，但对于一些提供服务的应用，例如mysql，redis这种的就不会停止服务
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+
+###Docker 常用命令
+
+~|#| 从仓库搜索镜像
+docker search centos
+
+~|#| 拉取镜像
+docker  pull  docker.io/centos
+
+~|#| 指定仓库注册地址拉取镜像
+docker pull     xxx.com:5000/myimages
+
+~|#| 创建一个centos系统容器,并运行其中的应用
+docker run ~|-|it centos /bin/bash
+ 在容器中  安装一个 上传下载的插件
+[root@52f32edf87a0 /]~|#| yum ~|-|y install lrzsz
+Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+...
+
+~|#| 修改镜像  记住刚刚容器运行时的imageId 其中, ~|-|m 来指定提交的说明信息,跟我们使用的版本控制工具一样; ~|-|a 可以指定更新的用户信息;之后是用来创建镜像的容器的 ID;最后指定目标镜像的仓库名和 tag 信息。创建成功后会返回这个镜像的 ID
+docker commit ~|-|m 'add lrzsz to centos7' ~|-|a 'me ' e8ea76c6015c  myrepo/mycentos7:lrzsz
+
+~|#| 查看正在运行的docker容器
+docker ps
+
+~|#| 查看所有的容器
+docker ps  ~|-|a
+
+~|#| 查看宿主机镜像  保存在/var/lib/docker中
+docker images
+
+~|#| 删除镜像
+docker rmi [仓库名]/[镜像名] 或者  docker rmi 镜像Id
+
+~|#| 启动容器
+docker start [容器名称]/[容器Id]
+
+~|#| 停止容器
+ docker stop [容器名称]/[容器Id]
+
+~|#|  重启容器 
+docker restart [容器名称]/[容器Id]
+
+~|#| 删除容器
+docker rm   [容器名称]/[容器Id]
+
+~|#| 删除所有停止的容器
+docker rm $(docker ps ~|-|a ~|-|q)
+
+~|#| 查看当前系统docker信息
+docker info
+
+
+",
+            "wordcount": "1257",
+            "inLanguage": "en",
+            "dateCreated": "2017-10-17/",
+            "datePublished": "2017-10-17/",
+            "dateModified": "2017-10-17/",
+            "author": {
+                "@type": "Person",
+                "name": "Thiago Rossener",
+                
+                "image": "/assets/img/uploads/profile.png",
+                
+                "jobTitle": "Chief Editor",
+                "url": "http://localhost:4000/authors/thiagorossener/",
+                "sameAs": [
+                    "https://github.com/thiagorossener","https://www.facebook.com/thiagorossener","https://twitter.com/thiagorossener","https://medium.com/@thiagorossener","https://www.instagram.com/thiagorossener","https://www.linkedin.com/in/thiagorossener"
+                ]
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Java小白的个人天地",
+                "url": "http://localhost:4000/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "http://localhost:4000/assets/img/blog-image.png",
+                    "width": "600",
+                    "height": "315"
+                }
+            },
+            "mainEntityOfPage": "True",
+            "genre": "docker",
+            "articleSection": "docker",
+            "keywords": ["docker","安装docker","docker命令"]
+        }
+        </script>
+    </body>
+</html>
